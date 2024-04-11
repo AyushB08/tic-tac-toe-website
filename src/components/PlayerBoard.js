@@ -74,7 +74,7 @@ function PlayerBoard() {
             <p>{losses} Losses</p>
             </div>
             <div className="title">
-            <h1>Tic Tac Toe AI</h1>
+            <h1>Tic Tac Toe 2-Player</h1>
             </div>
             <div className="status">{status}</div>
             <button className="custom-button" onClick={() => resetBoard()}>
