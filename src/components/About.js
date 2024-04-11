@@ -23,7 +23,7 @@ function About() {
                   <li>HTML</li>
                   <li>CSS</li>
                   <li>React</li>
-                  <li>Used VS Code</li>
+                  <li>Used VS Code IDE</li>
                   <li>Made this Website to practice my web development skills with react. </li>
                   <li>AI Algorithm developed originally in python. GitHub: </li>
                 </ul>
