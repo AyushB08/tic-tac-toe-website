@@ -13,7 +13,7 @@
 }
 
 .hero .container h1{
-    font-size: 70px;
+    font-size: 7vw;
     text-align: center;
     margin :5px 20px;
     
@@ -21,6 +21,6 @@
 
 .hero .container h2 {
     margin: 30px 20px;
-    font-size: 30px;
+    font-size: 4vw;
     color:rgb(8, 193, 239);
 }
