@@ -1,9 +1,11 @@
 import React from 'react'
 
-function AIBoard() {
+
+
+const AIBoard = () => {
   return (
-    <div>AIBoard</div>
+    <div>IDSJD</div>
+   
   )
 }
-
 export default AIBoard

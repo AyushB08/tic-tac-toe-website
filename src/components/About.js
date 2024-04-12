@@ -6,8 +6,14 @@ import HTMLLogo from "../assets/html-logo.png"
 import CSSLogo from "../assets/css-logo.png"
 import PythonLogo from "../assets/python-logo.png"
 
+
+
 function About() {
   return (
+
+
+    
+      
     <div className = "about">
         
         

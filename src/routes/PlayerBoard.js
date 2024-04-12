@@ -1,8 +1,13 @@
 import React from 'react'
 
-function PlayerBoard() {
+
+
+
+const PlayerBoard = () => {
   return (
-    <div>PlayerBoard</div>
+    <div>
+      hi
+    </div>
   )
 }
 

@@ -6,6 +6,8 @@ import About from "./About"
 import AIBoard from './AIBoard'
 import PlayerBoard from './PlayerBoard'
 
+
+
 const Home = () => {
     return (
         <div>
