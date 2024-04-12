@@ -2,10 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import "./PlayerBoardStyles.css"
 
-let wins = 0
-let ties = 0
-let losses = 0
-
 
 function PlayerBoard() {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -43,14 +39,10 @@ function PlayerBoard() {
       
   
       status = "Tie"
-      ties += 1
+      
     } else if (winner) {
       status = "Winner: " + winner;
-      if (winner == "X") {
-        losses += 1
-      } else {
-        wins += 1
-      }
+      
     } else {
       status = "Next Player: " + (xIsNext ? 'X' : 'O');
     }
@@ -68,11 +60,7 @@ function PlayerBoard() {
     return (
       <div className="player">
         <div className="col-one">
-            <div className="stats">
-            <p>{wins} Wins</p>
-            <p>{ties} Ties</p>
-            <p>{losses} Losses</p>
-            </div>
+            
             <div className="title">
             <h1>Tic Tac Toe 2-Player</h1>
             </div>
