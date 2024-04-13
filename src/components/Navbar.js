@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 import Logo from "../assets/logo.png";
 import './NavbarStyles.css';
+import axios from "axios";
 
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
+
+  const [loginUsername, setLoginUsername] = useState();
+  const [loginPassword, setLoginPassword] = useState();
+  const [signupPassword, setSignupPassword] = useState();
+  const [signupUsername, setSignupUsername] = useState();
 
   const handleLoginClick = () => {
     setShowLogin(true);
@@ -24,6 +30,20 @@ const Navbar = () => {
   const closeSignupPopup = () => {
     setShowSignup(false);
   };
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault()
+    axios.post("", {loginUsername, loginPassword})
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+  }
+
+  const handleSignupSubmit = (e) => {
+    e.preventDefault()
+    axios.post("", {signupUsername, signupPassword})
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+  }
 
   return (
     <header>
@@ -64,14 +84,14 @@ const Navbar = () => {
         <div className="login-popup">
           <div className="login-container">
             <h2>Login</h2>
-            <form>
+            <form onSubmit = {handleLoginSubmit}>
               <div className="form-group">
                 <label htmlFor="username">Username:</label>
-                <input type="text" id="username" name="username" />
+                <input type="text" id="username" name="username" onChange={(e) => setLoginUsername(e.target.ariaValueMin)}/>
               </div>
               <div className="form-group">
                 <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" />
+                <input type="password" id="password" name="password"  onChange={(e) => setLoginPassword(e.target.ariaValueMin)}/>
               </div>
               <button type="submit">Login</button>
             </form>
@@ -83,14 +103,14 @@ const Navbar = () => {
         <div className="login-popup">
           <div className="login-container">
             <h2>Signup</h2>
-            <form>
+            <form onSubmit = {handleSignupSubmit}>
               <div className="form-group">
                 <label htmlFor="new-username">Username:</label>
-                <input type="text" id="new-username" name="new-username" />
+                <input type="text" id="new-username" name="new-username"  onChange={(e) => setSignupUsername(e.target.ariaValueMin)}/>
               </div>
               <div className="form-group">
                 <label htmlFor="new-password">Password:</label>
-                <input type="password" id="new-password" name="new-password" />
+                <input type="password" id="new-password" name="new-password"  onChange={(e) => setSignupPassword(e.target.ariaValueMin)}/>
               </div>
               <button type="submit">Signup</button>
             </form>
