@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import "./AIBoardStyles.css"
-import { CgMoveRight } from 'react-icons/cg'
+
 let wins = 0
 let ties = 0
 let losses = 0

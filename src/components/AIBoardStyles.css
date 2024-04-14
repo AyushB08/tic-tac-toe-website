@@ -95,9 +95,9 @@
     height: 50px;
     width: 200px;
     position: relative;
-    background-color: #27ae60; /* Bright green background color */
+    background-color: #27ae60; 
     cursor: pointer;
-    border: 2px solid #27ae60; /* Bright green border color */
+    border: 2px solid #27ae60; 
     overflow: hidden;
     border-radius: 30px;
     color: #333;
