@@ -1,24 +1,192 @@
 import React from 'react'
 import { useState } from 'react'
 import "./AIBoardStyles.css"
+import { CgMoveRight } from 'react-icons/cg'
 let wins = 0
 let ties = 0
 let losses = 0
 function AIBoard() {
-    const [board, setBoard] = useState(Array(9).fill(null));
+    const [board, setBoard] = useState([null, null, null, null, null, null, null, null, null]);
+
     const [xIsNext, setXIsNext] = useState(true);
+    const [toggleChecked, setToggleChecked] = useState(false);
     
-   
+
+    function getValueOfBoard(board) {
+      if (board[0] === board[1] && board[1] === board[2]) {
+          if (board[0] === "O") {
+              return -10;
+          }
+          if (board[0] === "X") {
+              return 10;
+          }
+      }
+      if (board[3] === board[4] && board[4] === board[5]) {
+          if (board[3] === "O") {
+              return -10;
+          }
+          if (board[3] === "X") {
+              return 10;
+          }
+      }
+      if (board[6] === board[7] && board[7] === board[8]) {
+          if (board[6] === "O") {
+              return -10;
+          }
+          if (board[6] === "X") {
+              return 10;
+          }
+      }
   
+      if (board[0] === board[3] && board[3] === board[6]) {
+          if (board[0] === "O") {
+              return -10;
+          }
+          if (board[0] === "X") {
+              return 10;
+          }
+      }
+  
+      if (board[1] === board[4] && board[4] === board[7]) {
+          if (board[1] === "O") {
+              return -10;
+          }
+          if (board[1] === "X") {
+              return 10;
+          }
+      }
+  
+      if (board[2] === board[5] && board[5] === board[8]) {
+          if (board[2] === "O") {
+              return -10;
+          }
+          if (board[2] === "X") {
+              return 10;
+          }
+      }
+  
+      if (board[0] === board[4] && board[4] === board[8]) {
+          if (board[0] === "O") {
+              return -10;
+          }
+          if (board[0] === "X") {
+              return 10;
+          }
+      }
+  
+      if (board[2] === board[4] && board[4] === board[6]) {
+          if (board[2] === "O") {
+              return -10;
+          }
+          if (board[2] === "X") {
+              return 10;
+          }
+      }
+  
+      return 0;
+    }
+
+    function minimax(board, depth, isComputerPlaying, alpha, beta) {
+      let value = getValueOfBoard(board);
+  
+      if (value === 10 || value === -10) {
+          return value;
+      }
+  
+      if (!isMovesLeft(board)) {
+          return 0;
+      }
+  
+      if (isComputerPlaying) {
+          let bestVal = -10;
+          for (let i = 0; i < 9; i++) {
+              if (board[i] === null) {
+                  board[i] = "X";
+  
+                  bestVal = Math.max(bestVal, minimax(board, depth + 1, !isComputerPlaying, alpha, beta) - depth);
+                  board[i] = null;
+                  alpha = Math.max(alpha, bestVal);
+                  if (beta <= alpha) {
+                      break;
+                  }
+              }
+          }
+          return bestVal;
+      } else {
+          let bestVal = 10;
+          for (let i = 0; i < 9; i++) {
+              if (board[i] === null) {
+                  board[i] = "O";
+                  bestVal = Math.min(bestVal, minimax(board, depth + 1, !isComputerPlaying, alpha, beta) + depth);
+                  board[i] = null;
+                  beta = Math.min(beta, bestVal);
+                  if (beta <= alpha) {
+                      break;
+                  }
+              }
+          }
+          return bestVal;
+      }
+    }
+  
+    function findBestMove(board) {
+        let bestVal = -10;
+        let bestMove = 0;
+    
+        for (let i = 0; i < 9; i++) {
+            if (board[i] === null) {
+                board[i] = "X";
+                let value = minimax(board, 0, false, -1000, 1000);
+                board[i] = null;
+                if (value > bestVal) {
+                    bestMove = i;
+                    bestVal = value;
+                }
+            }
+        }
+        return bestMove;
+    }
+  
+  
+    
     function handleClick(index) {
       const newBoard = board.slice();
       if (calculateWinner(newBoard) || newBoard[index]) {
+        console.log("went here")
         return;
       }
-      newBoard[index] = xIsNext ? 'X' : 'O';
+      console.log("went below")
+      newBoard[index] = "O";
+     
       setBoard(newBoard);
-      setXIsNext(!xIsNext);
+
+      const secondBoard = newBoard.slice();
+      let move = findBestMove(secondBoard)
+
+      if (secondBoard[move] === null) {
+        
+        
+        
+        secondBoard[move] = "X";
+        console.log("MOVES: " + move)
+  
+        setBoard(secondBoard)
+      }
+      
+      
+      
+      
     };
+
+    function isMovesLeft(board) {
+      for (let i = 0; i < 9; i++) {
+          if (board[i] === null) {
+              return true;
+          }
+      }
+      return false;
+    }
+  
   
     function renderSquare(index) {
       return (
@@ -27,10 +195,29 @@ function AIBoard() {
         </button>
       );
     };
+
+    function resetTop() {
+      setBoard(Array(9).fill(null));
+      setXIsNext(true);
+    }
+
+    function resetBottom() {
+      setBoard(["X", null, null, null, null, null, null, null, null]);
+      setXIsNext(false);
+    }
   
     function resetBoard() {
-      setBoard(Array(9).fill(null))
-      setXIsNext(true)
+      if (toggleChecked) {
+          console.log("x started");
+          
+          setBoard(["X", null, null, null, null, null, null, null, null]);
+          setXIsNext(false);
+      } else {
+          console.log("o started")
+          setBoard(Array(9).fill(null));
+          setXIsNext(true);
+      }
+      
     }
   
     const winner = calculateWinner(board);
@@ -49,7 +236,7 @@ function AIBoard() {
         wins += 1
       }
     } else {
-      status = "Next Player: " + (xIsNext ? 'X' : 'O');
+      status = "Next Player: " + ('O');
     }
   
     const squares = [];
@@ -74,8 +261,12 @@ function AIBoard() {
             <h1>Tic Tac Toe AI</h1>
             </div>
             <div className="status">{status}</div>
-            <button className="custom-button" onClick={() => resetBoard()}>
-                Play Again
+            
+            <button class="button type1" onClick = {resetTop}>
+              <span class="btn-txt">Play as P1</span>
+            </button>
+            <button class="button type1" onClick = {resetBottom}>
+              <span class="btn-txt">Play as P2</span>
             </button>
         </div>
         <div className="col-two">
