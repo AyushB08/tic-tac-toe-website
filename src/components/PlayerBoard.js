@@ -65,9 +65,10 @@ function PlayerBoard() {
             <h1>Tic Tac Toe 2-Player</h1>
             </div>
             <div className="status">{status}</div>
-            <button className="custom-button" onClick={() => resetBoard()}>
-                Play Again
+            <button class="button type1" onClick = {resetBoard}>
+              <span class="btn-txt">Play Again</span>
             </button>
+           
         </div>
         <div className="col-two">
             <div className="board">
