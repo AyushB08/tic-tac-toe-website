@@ -13,10 +13,9 @@ const Home = () => {
         <div id ="home">
             <Navbar/>
             <Hero/>
-            <About/>
             <AIBoard/>
             <PlayerBoard/>
-            
+            <About/>
         </div>
     )
 }

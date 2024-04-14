@@ -1,5 +1,5 @@
 .about {
-    border: 2px solid #fff;
+   
 }
 
 .about .container {
@@ -12,42 +12,47 @@
     
 }
 
-.about .columns {
-    display:flex;
-    align-items: center;
-    justify-content: center;
+.about h1 {
+    font-size: 50px;
+    color:rgb(8, 193, 239);
+    margin-bottom: 40px;
 }
 
-.about .container h1{
-    font-size: 20px;
-    text-align: center;
-    margin :5px 20px;
+.btn {
+  display: grid;
+  place-items: center;
+  background: #e3edf7;
+  padding: 1.4em;
+  border-radius: 10px;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+	      -6px -6px 10px -1px rgba(255,255,255,0.7);
+  border: 1px solid rgba(0,0,0,0);
+  cursor: pointer;
+  transition: transform 0.5s;
 }
 
-.about img {
-    width:50px;
-    height:auto;
-    margin: 10px;
+.btn:hover {
+  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+	      inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+	      -0.5px -0.5px 0px rgba(255,255,255,1),
+	      0.5px 0.5px 0px rgba(0,0,0,0.15),
+	      0px 12px 10px -10px rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  transform: translateY(0.5em);
 }
 
-#react {
-    margin-left:20px;
-    margin-right: 20px;
+.btn svg {
+  transition: transform 0.5s;
+  width: 200px;
+  height: auto;
+  
 }
 
-#html {
-    width: 70px;
-    height:auto;
+.btn:hover svg {
+  
+  transform: scale(0.9);
+  fill: #333333;
 }
 
 
-.about .column-one {
-    display: flex;
-    flex-direction: column;
-}
-
-.about .column-two {
-    display: flex;
-    flex-direction: column;
-}
 

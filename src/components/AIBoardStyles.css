@@ -33,6 +33,11 @@
     max-width: 310px;
     
 }
+
+
+.title h1 {
+    margin-bottom: 15px;
+}
   
 .square-container {
     
@@ -111,6 +116,7 @@
   font-weight: 800;
   letter-spacing: 2px;
 }
+
 
 .type1::after {
   content: "";

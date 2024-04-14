@@ -258,15 +258,15 @@ function AIBoard() {
             <p>{losses} Losses</p>
             </div>
             <div className="title">
-            <h1>Tic Tac Toe AI</h1>
+              <h1>Tic Tac Toe AI</h1>
             </div>
             <div className="status">{status}</div>
             
             <button class="button type1" onClick = {resetTop}>
-              <span class="btn-txt">Play as P1</span>
+              <span class="btn-txt">You Play First</span>
             </button>
             <button class="button type1" onClick = {resetBottom}>
-              <span class="btn-txt">Play as P2</span>
+              <span class="btn-txt">AI Plays First</span>
             </button>
         </div>
         <div className="col-two">
