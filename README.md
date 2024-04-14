@@ -1,9 +1,10 @@
 # Description
 
-I developed this website in order to practice my web development skills using React.js, HTML, and CSS. Initially, I attempted to create a registration page for my website that would keep track of your win/ties/loss ratio against my AI using MongoDB, Express.js, React.js, and Node.js, (MERN Stack) however, due to a lack of time, I deleted my server side folder and ultimately decided to learn backend in a different project. Regarding this website, the AI algorithm I implemented utilizes minimax along with alpha-beta pruning to ensure it never loses. Furthermore, if desired you can also play Tic Tac Toe against a friend.
+I developed this website in order to practice my web development skills using React.js, HTML, and CSS. Initially, I attempted to create a registration page for my website that would keep track of your win/ties/loss ratio against my AI using MongoDB, Express.js, React.js, and Node.js, (MERN Stack) however, due to a lack of time, I deleted my server side folder and ultimately decided to learn backend in a different project. Regarding this website, the AI algorithm I implemented originally in Python, ([GitHub](https://github.com/facebook/create-react-app)) utilizes minimax along with alpha-beta pruning to ensure it never loses. Furthermore, if desired you can also play Tic Tac Toe against a friend.
 
 # Demo
 
+[Demo Video](https://www.youtube.com/watch?v=UM-HdixOhHE)
 
 # Getting Started with Create React App
 
