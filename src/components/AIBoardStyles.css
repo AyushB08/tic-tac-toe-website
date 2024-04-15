@@ -30,7 +30,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
-    max-width: 310px;
+
     
 }
 
@@ -41,13 +41,13 @@
   
 .square-container {
     
-    width: 100px;
-    height: 100px; 
+    width: 20vh;
+    height: 20vh; 
 }
   
   
 .square {
-    font-size: 32px;
+    font-size: 10vh;
     width: 100%;
     height: 100%;
     background-color: #4a5568;
@@ -88,12 +88,13 @@
     background-color: rgb(14, 169, 169);
     border-radius: 5px; 
     color:white;
+    font-size: 3vh
 }
   
 
 .button {
-    height: 50px;
-    width: 200px;
+    height: 9vh;
+    width: 45vh;
     position: relative;
     background-color: #27ae60; 
     cursor: pointer;
@@ -115,6 +116,7 @@
   z-index: 1;
   font-weight: 800;
   letter-spacing: 2px;
+  font-size: 3vh;
 }
 
 

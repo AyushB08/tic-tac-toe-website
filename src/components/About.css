@@ -13,7 +13,7 @@
 }
 
 .about h1 {
-    font-size: 50px;
+    font-size: 12vh;
     
     margin-bottom: 40px;
 }
@@ -43,7 +43,7 @@
 
 .btn svg {
   transition: transform 0.5s;
-  width: 200px;
+  width: 40vh;
   height: auto;
   
 }
